@@ -1,5 +1,15 @@
 #ifndef MATRIX_H
 #define MATRIX_H
+#include <iostream.h>
+#include <stdio.h>      /* printf, scanf */
+#include <stdlib.h>     /* exit */
+#include <setjmp.h>     /* jmp_buf, setjmp, longjmp */
+
+
+
+
+
+
 
 typedef struct 2dnatrix
 {
@@ -39,22 +49,68 @@ typedef struct 3dmatrix
 
 // now we get the depth angle z-axis.
 
-2dnatrix z1;
-2dnatrix z2;
-2dnatrix z3;
-2dnatrix z4;
-2dnatrix z5;
-2dnatrix z6;
-2dnatrix z7;
-2dnatrix z8;
-2dnatrix z9;
-2dnatrix z10;
-2dnatrix z11;
-2dnatrix z12;
-2dnatrix z13;
-2dnatrix z14;
-2dnatrix z15
-2dnatrix z16;
+2dnatrix * z1;
+2dnatrix * z2;
+2dnatrix * z3;
+2dnatrix * z4;
+2dnatrix * z5;
+2dnatrix * z6;
+2dnatrix * z7;
+2dnatrix * z8;
+2dnatrix * z9;
+2dnatrix * z10;
+2dnatrix * z11;
+2dnatrix * z12;
+2dnatrix * z13;
+2dnatrix * z14;
+2dnatrix * z15
+2dnatrix * z16;
+
+3dmatrix()
+{
+
+
+ z1 = new 2dnatrix;
+ z2 = new 2dnatrix;
+ z3 = new 2dnatrix;
+ z4 = new 2dnatrix;
+ z5 = new 2dnatrix;
+ z6 = new 2dnatrix;
+ z7 = new 2dnatrix;
+ z8 = new 2dnatrix;
+ z9 = new 2dnatrix;
+ z10 = new 2dnatrix;
+ z11 = new 2dnatrix;
+ z12 = new 2dnatrix;
+ z13 = new 2dnatrix;
+ z14 = new 2dnatrix;
+ z15 = new 2dnatrix;
+ z16 = new 2dnatrix;
+}
+
+~3dmatrix()
+{
+    
+    
+ delete z1;
+ delete  z2;
+ delete  z3;
+ delete  z4;
+ delete  z5;
+ delete  z6;
+ delete  z7;
+ delete  z8;
+ delete  z9;
+ delete  z10;
+ delete  z11;
+ delete  z12;
+ delete  z13;
+ delete  z14;
+ delete  z15
+ delete  z16;
+}
+
+
 
 
 
@@ -71,6 +127,7 @@ class computer_cpu
 {
 private:
 3dmatrix * m_matrix;  // the matrix white
+
 // 3dmatrix * m_anti_matrix;  // the anti matrix black
 // 3dmatrix * m_chaos_matrix; // dark and white
 // 3dmatrix * m_anti_chaos_matrix; // anti dark and anti white.
@@ -90,8 +147,9 @@ void substractEntireMatrix(long value);
 matrix_3d* get_matrix() { return m_matrix; }
 
 void run_matrix_program();
-
-
+// matrix said this must be the last variable in the class and it must be private;
+private:
+jmp_buf matrix_buffer;
 
 };
 
